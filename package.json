@@ -1,0 +1,24 @@
+{
+  "name": "mdast-cross-references",
+  "version": "1.0.0",
+  "description": "initialize and link up cross references between sections in a document",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mdast",
+    "cross",
+    "reference"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "devDependencies": {
+    "mdast": "^2.1.0",
+    "tap": "^2.2.0",
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "unist-util-visit": "^1.0.0"
+  }
+}
