@@ -1,23 +1,42 @@
 'use strict';
 
 var visit = require('unist-util-visit');
+var u = require('unist-builder');
 
 function transformer(tree) {
-  var definitions = {};
+  var anchors = {};
 
-  visit(tree, 'html', function (node, index, parent) {
-    var match = node.value.match(/<a\s*name='([^']+)'>/);
-    if (match) {
-      // here we'll determine what this would be called numerically,
-      // and put it in an object for later
-      console.log(match[1]);
-    }
+  function enumerateChild(prefix, child, i) {
+    var idx = i + 1;
+    child.id = prefix ? prefix + '.' + idx : idx.toString();
+    child.children.filter(function(child) {
+      return child.type === 'list';
+    }).forEach(function(list) {
+      list.children.forEach(enumerateChild.bind(null, child.id));
+    });
+  }
+
+  visit(tree, 'list', function (node) {
+    node.children.forEach(enumerateChild.bind(null, ''));
+    return false;
   });
 
-  visit(tree, 'link', function (node, index, parent) {
-    if (node.children.length === 1 &&
-        node.children[0].value === 'AUTO') {
-      console.log(node);
+  visit(tree, 'listItem', function (node) {
+    var id = node.id;
+    visit(node, 'html', function (node) {
+      var match = node.value.match(/<a\s*name='([^']+)'>/);
+      if (match) {
+        anchors[match[1]] = id;
+      }
+    });
+  });
+
+  visit(tree, 'link', function (node) {
+    if (node.children.length === 0) {
+      var anchorNode = anchors[node.href.substring(1)];
+      if (anchorNode) {
+        node.children = [u('text', '', anchorNode)];
+      }
     }
   });
 }
@@ -34,5 +53,4 @@ function attacher() {
 /*
  * Expose.
  */
-
 module.exports = attacher;

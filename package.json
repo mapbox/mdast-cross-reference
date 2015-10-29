@@ -4,7 +4,7 @@
   "description": "initialize and link up cross references between sections in a document",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/test.js"
   },
   "keywords": [
     "mdast",
@@ -15,10 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "mdast": "^2.1.0",
-    "tap": "^2.2.0",
-    "tape": "^4.2.2"
+    "tap": "^2.2.0"
   },
   "dependencies": {
+    "unist-builder": "^1.0.0",
     "unist-util-visit": "^1.0.0"
   }
 }
