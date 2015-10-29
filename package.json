@@ -1,5 +1,5 @@
 {
-  "name": "mdast-cross-references",
+  "name": "mdast-cross-reference",
   "version": "1.0.0",
   "description": "initialize and link up cross references between sections in a document",
   "main": "index.js",
