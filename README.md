@@ -1,4 +1,4 @@
-# mdast-cross-reference
+# remark-cross-reference
 
 A poor man's [LaTeX cross-referencing system](https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing) in Markdown.
 

@@ -1,11 +1,11 @@
 var fs = require('fs');
 var crossReference = require('../');
-var mdast = require('mdast');
+var remark = require('remark');
 var test = require('tap').test;
 
-test('mdast-cross-reference', function(t) {
+test('remark-cross-reference', function(t) {
   var input = fs.readFileSync(__dirname + '/fixtures/simple.input.md', 'utf8');
-  var output = mdast()
+  var output = remark()
     .use(crossReference)
     .process(input);
 
