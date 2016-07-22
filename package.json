@@ -1,6 +1,6 @@
 {
   "name": "remark-cross-reference",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "initialize and link up cross references between sections in a document",
   "main": "index.js",
   "scripts": {
