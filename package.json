@@ -1,5 +1,5 @@
 {
-  "name": "mdast-cross-reference",
+  "name": "remark-cross-reference",
   "version": "1.0.0",
   "description": "initialize and link up cross references between sections in a document",
   "main": "index.js",
@@ -7,15 +7,15 @@
     "test": "tap test/test.js"
   },
   "keywords": [
-    "mdast",
+    "remark",
     "cross",
     "reference"
   ],
   "author": "Tom MacWright",
   "license": "ISC",
   "devDependencies": {
-    "mdast": "^2.1.0",
-    "tap": "^2.2.0"
+    "remark": "^3.1.0",
+    "tap": "^5.0.0"
   },
   "dependencies": {
     "unist-builder": "^1.0.0",
